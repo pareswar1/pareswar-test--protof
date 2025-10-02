@@ -1,0 +1,138 @@
+<div class="portfolio">
+  <!-- Header -->
+  <header>
+  
+    <div class="logo">Pareswar</div>
+    <nav>
+      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+      <ul [ngClass]="{'menu-active': isMenuOpen}">
+        <li><a (click)="smoothScrollToElement('about')">About</a></li>
+        <li><a (click)="smoothScrollToElement('projects')">Projects</a></li>
+        <li><a (click)="smoothScrollToElement('gallery')">Gallery</a></li>
+        <li><a (click)="smoothScrollToElement('education')">Education</a></li>
+        <li><a (click)="smoothScrollToElement('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" (click)="isMenuOpen = false">
+    <div class="profile-image" [ngClass]="{'no-image': !profileImage}"
+      [style.background-image]="'url(' + profileImage + ')'">
+      <span *ngIf="!profileImage" class="fallback-text">Your Initials</span>
+    </div>
+    <div class="hero-text">
+      <h1>Pareswar Mallick</h1>
+      <p style="margin-left: 5px;">Software Engineer | Full Stack Developer</p>
+      <p>Anayasmi Infotech</p>
+      <!-- Social Media Icons -->
+      <div class="social-media-links">
+        <a href="https://www.instagram.com/___litu___/" target="_blank" class="social-icon"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/pareswar.mallick2" target="_blank" class="social-icon"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/pareswar-mallick-173526209/" target="_blank" class="social-icon"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@legendarydiary" target="_blank" class="social-icon"><i
+            class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about" class="about" (click)="isMenuOpen = false">
+    <h2>About Me</h2>
+    <p>
+      I am a dedicated and versatile <strong>Full Stack Software Engineer</strong> with 4 years of experience
+      specializing in <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Angular</strong>. Throughout my
+      career, I have developed robust, scalable web applications and contributed to various end-to-end solutions across
+      multiple industries.
+    </p>
+    <p>
+      With strong expertise in both <strong>backend</strong> and <strong>frontend</strong> technologies, I am passionate
+      about building high-performance systems that prioritize user experience and clean, maintainable code. My
+      proficiency in <strong>Java</strong> and <strong>Spring Boot</strong> allows me to design and implement efficient
+      backend services, while my skills in <strong>Angular</strong> empower me to create dynamic and responsive user
+      interfaces.
+    </p>
+    <p>
+      I thrive in collaborative environments and enjoy working with cross-functional teams to deliver impactful
+      solutions. Additionally, I am always eager to expand my knowledge and stay updated with the latest technologies to
+      enhance my development skills.
+    </p>
+    <p>
+      Outside of coding, I enjoy <strong>mentoring junior developers</strong> and contributing to <strong>open-source
+        projects</strong> that help improve the software development community.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects" (click)="isMenuOpen = false">
+    <h2>Projects</h2>
+    <div class="project-container">
+      <div *ngFor="let project of projects" class="project-card">
+        <img [src]="project.image" [alt]="project.name" />
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery" (click)="isMenuOpen = false">
+    <h2>Gallery</h2>
+    <div class="gallery-container">
+      <div *ngFor="let image of galleryImages" class="gallery-item">
+        <img [src]="image.src" [alt]="image.alt" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Education Section -->
+  <section id="education" class="education" (click)="isMenuOpen = false">
+    <h2>Education</h2>
+    <div class="education-container">
+      <div class="education-item">
+        <h3>Master of Computer Application</h3>
+        <p><strong>University:</strong> BPUT </p>
+        <p><strong>Year:</strong> 2018</p>
+      </div>
+      <div class="education-item">
+        <h3>Bachelor of Computer Application</h3>
+        <p><strong>University:</strong> UTKAL </p>
+        <p><strong>Year:</strong> 2015</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact" (click)="isMenuOpen = false">
+    <h2>Contact</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="button" (click)="submit()">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer (click)="isMenuOpen = false">
+    <div class="footer-social-media">
+      <a href="https://www.instagram.com/___litu___/" target="_blank" class="footer-icon"><i
+          class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/pareswar.mallick2" target="_blank" class="footer-icon"><i
+          class="fab fa-facebook-f"></i></a>
+      <a href="https://www.linkedin.com/in/pareswar-mallick-173526209/" target="_blank" class="footer-icon"><i
+          class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.youtube.com/@legendarydiary" target="_blank" class="footer-icon"><i
+          class="fab fa-youtube"></i></a>
+    </div>
+    <p>© 2025 pareswar. All rights reserved.</p>
+  </footer>
+
+  <!-- Add Font Awesome CDN for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
